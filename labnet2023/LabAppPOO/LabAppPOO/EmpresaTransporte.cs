@@ -28,6 +28,5 @@ namespace LabAppPOO
                 Console.WriteLine(v.MostrarDatos());
             }
         }
-
     }
 }
