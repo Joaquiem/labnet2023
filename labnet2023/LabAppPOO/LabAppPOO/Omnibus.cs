@@ -8,11 +8,13 @@ namespace LabAppPOO
 {
     internal class Omnibus : TransportePublico
     {
-        private static int MaxPasajeros = 24;
+        private static int _maxPasajeros = 24;
 
-        public Omnibus() 
-        {    
+        public Omnibus()
+        {
+            AgregarPasajeros();
         }
+
         public override void AgregarPasajeros()
         {
             string input;
@@ -20,20 +22,23 @@ namespace LabAppPOO
             {
                 try
                 {
-                    Console.WriteLine($"Ingrese la cantidad de pasajeros, no debe ser mayor a {MaxPasajeros} ni menor o igual a {MinPasajeros}.");
+                    Console.WriteLine($"Ingrese la cantidad de pasajeros, no debe ser mayor a {_maxPasajeros} ni menor o igual a {_minPasajeros}.");
                     input = Console.ReadLine();
                     Pasajeros = int.Parse(input);
                 }
-                catch {
-                    Console.WriteLine("Tipo de dato invalido");
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
                 }
-            } while (Pasajeros > MaxPasajeros || Pasajeros <= MinPasajeros);
+            } while (Pasajeros > _maxPasajeros || Pasajeros <= _minPasajeros);
 
         }
 
-        public override string MostrarDatos()
+        public override void MostrarDatos()
         {
-            return $"{this} tiene {Pasajeros} pasajeros";
+            Console.WriteLine($"El Omnibus patente {Patente} tiene {Pasajeros} pasajeros y su velocidad es: {Velocidad}");
         }
+
+
     }
 }
