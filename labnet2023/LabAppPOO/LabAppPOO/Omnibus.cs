@@ -36,7 +36,7 @@ namespace LabAppPOO
 
         public override void MostrarDatos()
         {
-            Console.WriteLine($"El Omnibus patente {Patente} tiene {Pasajeros} pasajeros y su velocidad es: {Velocidad}");
+            Console.WriteLine($"El Omnibus patente {Patente.ToString()} tiene {Pasajeros} pasajeros y su velocidad es: {Velocidad}");
         }
 
 
