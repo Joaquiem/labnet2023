@@ -10,9 +10,15 @@ namespace LabPractica2
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Ingrese un valor para dividirlo por 0:");
-            var n = int.Parse(Console.ReadLine());
-            n.DividirPor0();
+            try
+            {
+                Console.WriteLine("Ingrese un valor para dividirlo por 0:");
+                var n = int.Parse(Console.ReadLine());
+                n.DividirPor0();
+            }catch (Exception ex)
+            {
+                   Console.WriteLine($"{ex.Message}");
+            }
             Console.WriteLine("Ingrese 2 numeros para dividirlos:");
             try
             {

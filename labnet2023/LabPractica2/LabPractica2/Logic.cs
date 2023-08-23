@@ -17,7 +17,7 @@ namespace LabPractica2
         }
         public void ExcepcionPersonalizada()
         {
-            throw new Exception("excepcion personalizada");
+            throw new Exception("Se lanzo una excepcion personalizada");
         }
     }
 }
