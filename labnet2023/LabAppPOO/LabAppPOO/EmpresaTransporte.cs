@@ -11,7 +11,7 @@ namespace LabAppPOO
 {
     internal class EmpresaTransporte
     {
-        private const int _MaxFlota = 2;
+        private const int _MaxFlota = 10;
         public List<TransportePublico> flota { get; set; }
         public EmpresaTransporte()
         {
