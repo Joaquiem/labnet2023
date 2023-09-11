@@ -40,6 +40,8 @@ namespace Lab.Demo.EF.Logic
             return context.Customers.ToList();
         }
 
+        
+
         public void Insert(Customers customer) 
         {
             if (context.Customers.FirstOrDefault(c => c.CustomerID == customer.CustomerID) != null)

@@ -18,7 +18,7 @@ namespace Lab.Demo.EF.Entities
         public int OrderID { get; set; }
 
         [StringLength(5)]
-        public string CustomerID { get; set; }
+        public string Customer { get; set; }
 
         public int? EmployeeID { get; set; }
 

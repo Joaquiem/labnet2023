@@ -77,17 +77,17 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Lab.Demo.EF.Data\Lab.Demo.EF.Data.csproj">
+    <ProjectReference Include="..\Lab.Demo.EF.Data\Lab.EF.Data.csproj">
       <Project>{5B36FEC9-CDFA-47BB-B8AE-2E2757DC58C9}</Project>
-      <Name>Lab.Demo.EF.Data</Name>
+      <Name>Lab.EF.Data</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Lab.Demo.EF.Entities\Lab.Demo.EF.Entities.csproj">
+    <ProjectReference Include="..\Lab.Demo.EF.Entities\Lab.EF.Entities.csproj">
       <Project>{34126A6C-ABCC-4C2F-94B8-36529399AB89}</Project>
-      <Name>Lab.Demo.EF.Entities</Name>
+      <Name>Lab.EF.Entities</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Lab.Demo.EF.Logic\Lab.Demo.EF.Logic.csproj">
+    <ProjectReference Include="..\Lab.Demo.EF.Logic\Lab.EF.Logic.csproj">
       <Project>{f537ac2b-dafc-40d2-94af-4e07bf0f7f4f}</Project>
-      <Name>Lab.Demo.EF.Logic</Name>
+      <Name>Lab.EF.Logic</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />

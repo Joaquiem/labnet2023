@@ -55,7 +55,7 @@ namespace Lab.Demo.EF.Data
                 .HasPrecision(19, 4);
 
             modelBuilder.Entity<Orders>()
-                .Property(e => e.CustomerID)
+                .Property(e => e.Customer)
                 .IsFixedLength();
 
             modelBuilder.Entity<Orders>()

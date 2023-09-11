@@ -1,0 +1,27 @@
+﻿@model List<Lab.Demo.EF.Entities.Orders>
+@{
+    ViewBag.Title = "Orders";
+}
+
+<h1>Soy el index de Orders</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Orden Id</th>
+            <th scope="col">ID compañia</th>
+            <th scope="col">Nombre compañia</th>
+        </tr>
+    </thead>
+    <tbody></tbody>
+
+    @foreach (var o in Model)
+    {
+        <tr>
+            <th scope="row">@o.OrderID</th>
+            <td>@o.Customers.CustomerID</td>
+            <td>@o.Customers.CompanyName</td>
+        </tr>
+    }
+</table>

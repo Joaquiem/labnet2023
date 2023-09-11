@@ -1,0 +1,14 @@
+﻿@model Lab.MVC.Models.CustomerView
+@{
+    ViewBag.Title = "Insert";
+}
+<h1>Vista para insertar</h1>
+
+@using (Html.BeginForm("Insert", "Customer", FormMethod.Post))
+
+{
+    <label>Id del Customer </label>@Html.TextBoxFor(c => c.ID)
+    <label>Nombre del Customer </label>@Html.TextBoxFor(c => c.CompanyName)
+    <input type="Submit" class="form-control">
+}
+

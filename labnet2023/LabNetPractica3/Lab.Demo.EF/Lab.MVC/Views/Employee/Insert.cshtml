@@ -1,0 +1,16 @@
+﻿@model Lab.MVC.Models.EmployeeView
+@{
+    ViewBag.Title = "Insert";
+}
+
+<h1>Vista para insertar</h1>
+
+@using (Html.BeginForm("Insert", "Employee", FormMethod.Post))
+
+{
+    <label>Id del Empleado</label>@Html.TextBoxFor(e => e.ID)
+    <label>Nombe del Empleado</label>@Html.TextBoxFor(e => e.FirstName)
+    <label>Apellido del Empleado</label>@Html.TextBoxFor(e => e.LastName)
+    <input type="Submit" class="form-control">
+}
+

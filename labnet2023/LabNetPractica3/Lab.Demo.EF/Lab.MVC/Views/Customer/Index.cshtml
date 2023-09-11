@@ -1,0 +1,32 @@
+﻿
+@model List<Lab.MVC.Models.CustomerView>
+@{
+    ViewBag.Title = "Customers";
+}
+
+<h1>Soy el index de customers Xd</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">ID Customer</th>
+            <th scope="col">Nombre compañia</th>
+            <th scope="col"> Borrar</th>
+        </tr>
+    </thead>
+    <tbody></tbody>
+
+    @foreach (var c in Model)
+    {
+        <tr>
+            <th scope="row">@c.ID</th>
+            <td>@c.CompanyName</td>
+            <td>@Html.ActionLink("Borrar", "Delete",new {id = c.ID})</td>
+        </tr>
+    }
+</table>
+
+<div>
+    @Html.ActionLink("Insertar Nuevo Customer", "Insert")
+</div>
+
