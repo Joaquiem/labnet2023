@@ -1,0 +1,22 @@
+﻿@model Lab.MVC.Models.EmployeeView
+@{
+    ViewBag.Title = "Update";
+}
+
+<h1>Vista para Modificar</h1>
+
+<div class="form-group">
+    @using (Html.BeginForm("Update", "Employee", FormMethod.Post))
+    {
+        <label>ID del Employee</label>
+        @Html.TextBoxFor(e => e.EmployeeID, new { @class = "form-control", @style = "margin-bottom: 10px" })
+        <label>Nombre del Employee</label>
+        @Html.TextBoxFor(e => e.FirstName, new { @class = "form-control", @style = "margin-bottom: 20px" })
+        <label>Apellido del Employee</label>
+        @Html.TextBoxFor(e => e.LastName, new { @class = "form-control", @style = "margin-bottom: 20px" })
+
+        <input type="submit" value="Guardar Cambios" class="btn btn-primary">
+        <label style="font-size: 16px"> | @Html.ActionLink("volver", "Index")</label>
+    }
+</div>
+

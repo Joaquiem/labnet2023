@@ -20,10 +20,17 @@ namespace Lab.Demo.EF.Logic
 
         public void Delete(string id)
         {
-            var customerAEliminar = context.Customers.First(i => i.CustomerID == id);
+            try
+            {
+                var customerAEliminar = context.Customers.First(i => i.CustomerID == id);
 
-            context.Customers.Remove(customerAEliminar);
-            context.SaveChanges();
+                context.Customers.Remove(customerAEliminar);
+                context.SaveChanges();
+            }
+            catch (Exception e)
+            { 
+                
+            }
 
         }
         public Customers Find(string id)

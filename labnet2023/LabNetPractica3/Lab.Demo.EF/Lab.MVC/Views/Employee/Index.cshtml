@@ -11,8 +11,8 @@
         <tr>
             <th scope="col">ID empleado</th>
             <th scope="col">Nombre empleado</th>
-            <th scope="col">Apellido empleado</th>
-            <th scope="col"> Borrar</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
         </tr>
     </thead>
     <tbody></tbody>
@@ -20,10 +20,10 @@
     @foreach (var e in Model)
     {
         <tr>
-            <th scope="row">@e.ID</th>
+            <th scope="row">@e.EmployeeID</th>
             <td>@e.FirstName</td>
-            <td>@e.LastName</td>
-            <td>@Html.ActionLink("Borrar", "Delete", new { id = e.ID })</td>
+            <td>@Html.ActionLink("Modificar", "Update", new { id = e.EmployeeID })</td>
+            <td>@Html.ActionLink("Borrar", "Delete", new { id = e.EmployeeID })</td>
         </tr>
     }
 </table>

@@ -195,6 +195,8 @@
     <Content Include="Views\Customer\Insert.cshtml" />
     <Content Include="Views\Employee\Insert.cshtml" />
     <Content Include="Views\Error\Index.cshtml" />
+    <Content Include="Views\Customer\Update.cshtml" />
+    <Content Include="Views\Employee\Update.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

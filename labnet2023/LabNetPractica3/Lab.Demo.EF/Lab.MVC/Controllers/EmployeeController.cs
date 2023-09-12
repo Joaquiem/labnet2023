@@ -18,7 +18,7 @@ namespace Lab.MVC.Controllers
             var employees = logic.GetAll();
             List<EmployeeView> employeeView = employees.Select(e => new EmployeeView
             {
-                ID = e.EmployeeID,
+                EmployeeID = e.EmployeeID,
                 FirstName = e.FirstName,
                 LastName = e.LastName,
             }).ToList();
@@ -39,7 +39,7 @@ namespace Lab.MVC.Controllers
             {
                 Employees employeeEntity = new Employees
                 {
-                    EmployeeID = ev.ID,
+                    EmployeeID = ev.EmployeeID,
                     FirstName = ev.FirstName,
                     LastName = ev.LastName
                 };
@@ -55,10 +55,64 @@ namespace Lab.MVC.Controllers
 
 
         }
+        [HttpGet]
         public ActionResult Delete(int id)
         {
-            logic.Delete(id);
-            return RedirectToAction("Index");
+            try
+            {
+                logic.Delete(id);
+                return RedirectToAction("index");
+            }
+            catch (Exception e)
+            {
+                return RedirectToAction("Index", "Error", new { e.Message });
+            }
+        }
+
+        [HttpGet]
+        public ActionResult Update(int id)
+        {
+            try
+            {
+                Employees e = logic.Find(id);
+
+                EmployeeView ret = new EmployeeView
+                {
+                    EmployeeID = e.EmployeeID,
+                    FirstName = e.FirstName,
+                    LastName = e.LastName,
+
+                };
+
+                return View(ret);
+            }
+            catch (Exception e)
+            {
+                return RedirectToAction("Index", "Error", new { e.Message });
+            }
+        }
+
+        [HttpPost]
+        public ActionResult Update(EmployeeView employeeView)
+        {
+            try
+            {
+                Employees employee = new Employees
+                {
+                    EmployeeID = employeeView.EmployeeID,
+                    FirstName = employeeView.FirstName,
+                    LastName = employeeView.LastName,
+
+                };
+
+                logic.Update(employee);
+
+                return RedirectToAction("Index");
+            }
+            catch (Exception e)
+            {
+                return RedirectToAction("Index", "Error", new { e.Message });
+            }
         }
     }
 }

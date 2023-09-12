@@ -56,10 +56,64 @@ namespace Lab.MVC.Controllers
 
 
         }
+
+
+        [HttpPost]
         public ActionResult Delete(string id) 
         {
-            logic.Delete(id);
-            return RedirectToAction("index");
+            try
+            {
+                logic.Delete(id);
+                return RedirectToAction("index");
+            }
+            catch(Exception e)
+            {
+                return RedirectToAction("Index", "Error", new { e.Message });
+            }
+        }
+
+        [HttpGet]
+        public ActionResult Update(string id)
+        {
+            try
+            {
+                Customers c = logic.Find(id);
+
+                CustomerView ret = new CustomerView
+                {
+                    ID = c.CustomerID,
+                    CompanyName = c.CompanyName,
+                   
+                };
+
+                return View(ret);
+            }
+            catch (Exception e)
+            {
+                return RedirectToAction("Index", "Error", new { e.Message });
+            }
+        }
+
+        [HttpPost]
+        public ActionResult Update(CustomerView customerView) 
+        {
+            try
+            {
+                Customers category = new Customers
+                {
+                    CustomerID = customerView.ID,
+                    CompanyName = customerView.CompanyName
+                     
+                };
+
+                logic.Update(category);
+
+                return RedirectToAction("Index");
+            }
+            catch (Exception e)
+            {
+                return RedirectToAction("Index", "Error", new { e.Message });
+            }
         }
     }
 }

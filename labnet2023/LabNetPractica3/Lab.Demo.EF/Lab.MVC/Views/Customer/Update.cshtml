@@ -1,0 +1,20 @@
+﻿@model Lab.MVC.Models.CustomerView
+@{
+    ViewBag.Title = "Modificar";
+}
+<h1>Vista para Modificar</h1>
+
+<div class="form-group">
+    @using (Html.BeginForm("Update", "Category", FormMethod.Post))
+    {
+        <label>ID del Customer</label>
+        @Html.TextBoxFor(c => c.ID, new { @class = "form-control", @style = "margin-bottom: 10px" })
+        <label>Nombre del customer</label>
+        @Html.TextBoxFor(c => c.CompanyName, new { @class = "form-control", @style = "margin-bottom: 20px" })
+        
+        <input type="submit" value="Guardar Cambios" class="btn btn-primary">
+        <label style="font-size: 16px"> | @Html.ActionLink("volver", "Index")</label>
+    }
+</div>
+
+

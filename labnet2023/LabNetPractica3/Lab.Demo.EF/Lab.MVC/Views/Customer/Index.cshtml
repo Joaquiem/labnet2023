@@ -11,19 +11,22 @@
         <tr>
             <th scope="col">ID Customer</th>
             <th scope="col">Nombre compañia</th>
-            <th scope="col"> Borrar</th>
+            <th scope="col"> </th>
+            <th scope="col"> </th>
         </tr>
     </thead>
-    <tbody></tbody>
+    <tbody>
 
-    @foreach (var c in Model)
-    {
-        <tr>
-            <th scope="row">@c.ID</th>
-            <td>@c.CompanyName</td>
-            <td>@Html.ActionLink("Borrar", "Delete",new {id = c.ID})</td>
-        </tr>
-    }
+        @foreach (var c in Model)
+        {
+            <tr>
+                <th scope="row">@c.ID</th>
+                <td>@c.CompanyName</td>
+                <td>@Html.ActionLink("Modificar", "Update", new { id = c.ID })</td>
+                <td>@Html.ActionLink("Borrar", "Delete", new { id = c.ID })</td>
+            </tr>
+        }
+    </tbody>
 </table>
 
 <div>
