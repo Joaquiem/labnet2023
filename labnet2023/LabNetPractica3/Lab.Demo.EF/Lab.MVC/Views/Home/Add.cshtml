@@ -1,0 +1,21 @@
+﻿@model Lab.MVC.Models.DataModel
+
+@{
+    ViewBag.Title = "Agregar";
+}
+
+<h2>Agregar nuevo modelo</h2>
+
+<div class="form-group">
+    @using (Html.BeginForm("Add", "Home", FormMethod.Post))
+    {
+        <label>Titulo del modelo</label>
+        @Html.TextBoxFor(p => p.Title, new { @class = "form-control", @style = "margin-bottom: 10px" })
+        <label>Descripcion de la categoria</label>
+        @Html.TextBoxFor(p => p.Body, new { @class = "form-control", @style = "margin-bottom: 10px" })
+        <label>ID del usuario</label>
+        @Html.TextBoxFor(p => p.UserId, new { @class = "form-control", @style = "margin-bottom: 20px" })
+        <input type="submit" value="Agregar" class="btn btn-primary pt-2">
+        <label style="font-size: 16px"> | @Html.ActionLink("volver", "ApiTest")</label>
+    }
+</div>

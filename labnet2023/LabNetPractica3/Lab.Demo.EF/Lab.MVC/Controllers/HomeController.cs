@@ -33,6 +33,7 @@ namespace Lab.MVC.Controllers
 
             return View();
         }
+        
         public async Task<ActionResult> ApiTest()
         {
             if (TempData.ContainsKey("Message"))
@@ -42,18 +43,18 @@ namespace Lab.MVC.Controllers
             }
 
             HttpClient client = new HttpClient();
-            HttpResponseMessage response = await client.GetAsync("https://swapi.dev");
+            HttpResponseMessage response = await client.GetAsync("https://jsonplaceholder.typicode.com/posts/");
             string content = await response.Content.ReadAsStringAsync();
             List<DataModel> data = JsonConvert.DeserializeObject<List<DataModel>>(content);
             return View(data);
         }
 
-        public async Task<ActionResult> Details(string name)
+        public async Task<ActionResult> Details(int id)
         {
             HttpClient client = new HttpClient();
-            HttpResponseMessage response = await client.GetAsync("https://swapi.dev");
+            HttpResponseMessage response = await client.GetAsync("https://jsonplaceholder.typicode.com/posts/");
             string content = await response.Content.ReadAsStringAsync();
-            DataModel data = JsonConvert.DeserializeObject<List<DataModel>>(content).FirstOrDefault(d => d.Name == Name);
+            DataModel data = JsonConvert.DeserializeObject<List<DataModel>>(content).FirstOrDefault(d => d.Id == id);
             return View(data);
         }
 
@@ -69,7 +70,7 @@ namespace Lab.MVC.Controllers
             string json = JsonConvert.SerializeObject(d);
             var client = new HttpClient();
             var content = new StringContent(json, Encoding.UTF8, "application/json");
-            var response = await client.PostAsync("https://swapi.dev", content);
+            var response = await client.PostAsync("https://jsonplaceholder.typicode.com/posts", content);
 
             if (response.IsSuccessStatusCode)
             {
@@ -84,12 +85,12 @@ namespace Lab.MVC.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult> Update(string name)
+        public async Task<ActionResult> Update(int id)
         {
             HttpClient client = new HttpClient();
-            HttpResponseMessage response = await client.GetAsync("https://swapi.dev");
+            HttpResponseMessage response = await client.GetAsync("https://jsonplaceholder.typicode.com/posts/");
             string content = await response.Content.ReadAsStringAsync();
-            DataModel data = JsonConvert.DeserializeObject<List<DataModel>>(content).FirstOrDefault(d => d.Name == name);
+            DataModel data = JsonConvert.DeserializeObject<List<DataModel>>(content).FirstOrDefault(d => d.Id == id);
             return View(data);
         }
 
@@ -99,7 +100,7 @@ namespace Lab.MVC.Controllers
             string json = JsonConvert.SerializeObject(d);
             var client = new HttpClient();
             var content = new StringContent(json, Encoding.UTF8, "application/json");
-            var response = await client.PutAsync("https://swapi.dev" + d.Name, content);
+            var response = await client.PutAsync("https://jsonplaceholder.typicode.com/posts/" + d.Id, content);
 
             if (response.IsSuccessStatusCode)
             {
@@ -113,19 +114,19 @@ namespace Lab.MVC.Controllers
             return RedirectToAction("ApiTest");
         }
 
-        public async Task<ActionResult> Delete(string name)
+        public async Task<ActionResult> Delete(int id)
         {
             HttpClient client = new HttpClient();
-            HttpResponseMessage response = await client.GetAsync("https://swapi.dev");
+            HttpResponseMessage response = await client.GetAsync("https://jsonplaceholder.typicode.com/posts/");
             string content = await response.Content.ReadAsStringAsync();
-            DataModel data = JsonConvert.DeserializeObject<List<DataModel>>(content).FirstOrDefault(d => d.Name == name);
+            DataModel data = JsonConvert.DeserializeObject<List<DataModel>>(content).FirstOrDefault(d => d.Id == id);
             return View(data);
         }
 
-        public async Task<ActionResult> DeleteConfirmed(string name)
+        public async Task<ActionResult> DeleteConfirmed(int id)
         {
             var client = new HttpClient();
-            var response = await client.DeleteAsync("https://swapi.dev" + name);
+            var response = await client.DeleteAsync("https://jsonplaceholder.typicode.com/posts/" + id);
 
             if (response.IsSuccessStatusCode)
             {
@@ -139,4 +140,9 @@ namespace Lab.MVC.Controllers
             return RedirectToAction("ApiTest");
         }
     }
+
+
+
+    
+
 }

@@ -1,17 +1,43 @@
-﻿@model Lab.MVC.Models.DataModel
+﻿@model List<Lab.MVC.Models.DataModel>
+@{
+    ViewBag.Title = "ApiTest";
+}
 
 @{
-    ViewBag.Title = "Remove";
+    ViewBag.Title = "ApiTest";
+}
+@if (ViewBag.Message != null && !string.IsNullOrEmpty(ViewBag.Message))
+{
+    <h4>@ViewBag.Message</h4>
+    <h5>Tener en cuenta que las acciones posibles retornan mesajes que confirman el exito pero no se ejecutan sobre la base de datos disponible</h5>
 }
 
-<h2>Estas seguro que quieres eliminar el Modelo con ID: @Model.Name</h2>
+<h2>JsonPlaceholder lista</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <td>ID Modelo</td>
+            <td>Titulo Modelo</td>
+            <td></td>
+            <td></td>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var i in Model)
+        {
+            <tr>
+                <td>@i.Id</td>
+                <td>@Html.ActionLink(@i.Title.ToString(), "Details", new { id = i.Id })</td>
+                <td>@Html.ActionLink("Modificar", "Update", new { id = i.Id })</td>
+                <td>@Html.ActionLink("Borrar", "Delete", new { id = i.Id })</td>
+            </tr>
+        }
+
+    </tbody>
+</table>
 
 <div>
-    <label style="font-weight: 400" class="h4">Nombre del Modelo: @Model.Name</label>
+    @Html.ActionLink("Insertar nuevo modelo", "Add")
 </div>
-
-@using (Html.BeginForm("DeleteConfirmed", "Home", new { name = Model.Name }, FormMethod.Post, new { @class = "form-class" }))
-{
-    <input type="submit" value="Borrar" class="btn btn-danger">
-    <label style="font-size: 16px"> | @Html.ActionLink("volver", "ApiTest")</label>
-}

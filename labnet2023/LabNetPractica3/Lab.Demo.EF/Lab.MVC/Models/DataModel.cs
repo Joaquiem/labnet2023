@@ -7,8 +7,10 @@ namespace Lab.MVC.Models
 {
     public class DataModel
     {
-        public string Name { get; set; }
-        public string HairColor { get; set; }
-        public string EyeColor { get; set; }
+        public int Id{ get; set; }
+        public string Title { get; set; }
+        public string Body { get; set; }
+        public int UserId { get; set; }
+
     }
 }

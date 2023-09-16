@@ -1,0 +1,22 @@
+﻿@model Lab.MVC.Models.DataModel
+
+@{
+    ViewBag.Title = "Modificar";
+}
+
+<h2>Modificar categoria con ID @Html.DisplayFor(c => c.Id)</h2>
+
+<div class="form-group">
+    @using (Html.BeginForm("Update", "Home", FormMethod.Post))
+    {
+        <label>Titulo del modelo</label>
+        @Html.TextBoxFor(p => p.Title, new { @class = "form-control", @style = "margin-bottom: 10px" })
+        <label>Descripcion del modelo</label>
+        @Html.TextBoxFor(p => p.Body, new { @class = "form-control", @style = "margin-bottom: 10px" })
+        <label>Id del usuario</label>
+        @Html.TextBoxFor(p => p.UserId, new { @class = "form-control", @style = "margin-bottom: 20px" })
+        <div hidden>@Html.TextBoxFor(P => P.Id)</div>
+        <input type="submit" value="Guardar Cambios" class="btn btn-primary">
+        <label style="font-size: 16px"> | @Html.ActionLink("volver", "ApiTest")</label>
+    }
+</div>

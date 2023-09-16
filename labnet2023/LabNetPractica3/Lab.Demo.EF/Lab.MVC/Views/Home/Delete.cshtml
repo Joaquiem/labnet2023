@@ -1,0 +1,19 @@
+﻿@model Lab.MVC.Models.DataModel
+
+@{
+    ViewBag.Title = "Remove";
+}
+
+<h2>Estas seguro que quieres eliminar el Modelo con ID: @Model.Id</h2>
+
+<div>
+    <label style="font-weight: 400" class="h4">Titulo del Modelo: @Model.Title</label>
+    <label style="font-weight: 400" class="h4">Descripcion del modelo: @Model.Body</label>
+    <label style="font-weight: 400" class="h4">Id del usuario: @Model.UserId</label>
+</div>
+
+@using (Html.BeginForm("DeleteConfirmed", "Home", new { id = Model.Id }, FormMethod.Post, new { @class = "form-class" }))
+{
+    <input type="submit" value="Borrar" class="btn btn-danger">
+    <label style="font-size: 16px"> | @Html.ActionLink("volver", "ApiTest")</label>
+}

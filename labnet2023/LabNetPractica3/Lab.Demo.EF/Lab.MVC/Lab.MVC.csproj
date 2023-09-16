@@ -199,6 +199,9 @@
     <Content Include="Views\Customer\Update.cshtml" />
     <Content Include="Views\Employee\Update.cshtml" />
     <Content Include="Views\Home\ApiTest.cshtml" />
+    <Content Include="Views\Home\Update.cshtml" />
+    <Content Include="Views\Home\Delete.cshtml" />
+    <Content Include="Views\Home\Add.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
