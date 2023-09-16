@@ -132,6 +132,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\DataModel.cs" />
     <Compile Include="Models\EmployeeView.cs" />
     <Compile Include="Models\CustomerView.cs" />
     <Compile Include="Models\OrderView.cs" />
@@ -197,6 +198,7 @@
     <Content Include="Views\Error\Index.cshtml" />
     <Content Include="Views\Customer\Update.cshtml" />
     <Content Include="Views\Employee\Update.cshtml" />
+    <Content Include="Views\Home\ApiTest.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

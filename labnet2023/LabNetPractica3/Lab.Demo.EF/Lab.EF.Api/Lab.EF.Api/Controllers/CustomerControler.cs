@@ -1,4 +1,6 @@
-﻿using Lab.Demo.EF.Logic;
+﻿using Lab.Demo.EF.Entities;
+using Lab.Demo.EF.Logic;
+using Lab.EF.Api.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
